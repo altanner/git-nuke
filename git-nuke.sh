@@ -1,16 +1,19 @@
 #!/bin/bash
 
-RED='\033[0;31m';
+RED='\033[31m';
+GREEN='\033[32m'
 WHITE='\033[0m';
 GITFOLDER="./.git/"
 GITUSER=$(git config user.name)
 REPO=$(pwd);
 
 if ! [[ -d $GITFOLDER ]]; then
-    echo -e "The working folder: \n$REPO\ndoes not appear to be a git repository... standing down.";
+    echo -e "${RED}Nuke target NOT acquired.${WHITE}";
+    echo -e "The working folder: \n$REPO\ndoes not appear to be a git repository: standing down.";
     exit 1;
 else
     GITREPONAME=$(echo $REPO | sed "s/^.*\///g")
+    echo -e "${RED}Nuke target $REPO acquired.${WHITE}";
     echo -e "${RED}Arming warhead...${WHITE}";
     sleep 2;
     echo -e "${RED}Warhead ready - awaiting confirmation...${WHITE}";
@@ -25,7 +28,7 @@ else
         echo -e "${RED}Repo nuked... rebuilding...${WHITE}";
         git clone https://github.com/$GITUSER/$GITREPONAME;
         cd $GITREPONAME;
-        echo "There we go, all better now... maybe!";
+        echo -e "\nThere we go, all better now... maybe!";
         exit 0;
     else
         echo "Nuke aborted, standing down.";
