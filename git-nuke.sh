@@ -1,7 +1,7 @@
 #!/bin/bash
 
 RED='\033[31m';
-GREEN='\033[32m'
+GREEN='\033[32m';
 WHITE='\033[0m';
 GITFOLDER="./.git/"
 GITUSER=$(git config user.name)
@@ -28,10 +28,10 @@ else
         echo -e "${RED}Repo nuked... rebuilding...${WHITE}";
         git clone https://github.com/$GITUSER/$GITREPONAME;
         cd $GITREPONAME;
-        echo -e "\nThere we go, all better now... maybe!";
+        echo -e "${GREEN}\nThere we go, all better now... maybe.${WHITE}";
         exit 0;
     else
-        echo "Nuke aborted, standing down.";
+        echo "${GREEN}\nNuke aborted, standing down.${WHITE}";
         exit 0;
     fi
 fi
