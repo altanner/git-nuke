@@ -4,7 +4,7 @@ RED='\033[31m';
 GREEN='\033[32m';
 WHITE='\033[0m';
 GITFOLDER="./.git/"
-GITUSER=$(git config user.name)
+GITUSER=$(git config user.name);
 REPO=$(pwd);
 
 if ! [[ -d $GITFOLDER ]]; then
@@ -26,9 +26,7 @@ else
         cd ..;
         rm -rf $REPO;
         echo -e "${RED}Repo nuked... rebuilding...${WHITE}";
-        echo $GITUSER;
-        echo $GITREPONAME;
-        echo $GITUSER/$GITREPONAME.git;
+        #! why doesn't this line work?
         git clone https://github.com/$GITUSER/$GITREPONAME.git;
         cd $GITREPONAME;
         echo -e "${GREEN}\nThere we go, all better now... maybe.${WHITE}";
