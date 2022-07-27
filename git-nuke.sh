@@ -26,7 +26,10 @@ else
         cd ..;
         rm -rf $REPO;
         echo -e "${RED}Repo nuked... rebuilding...${WHITE}";
-        git clone https://github.com/$GITUSER/$GITREPONAME;
+        echo $GITUSER;
+        echo $GITREPONAME;
+        echo $GITUSER/$GITREPONAME.git;
+        git clone https://github.com/$GITUSER/$GITREPONAME.git;
         cd $GITREPONAME;
         echo -e "${GREEN}\nThere we go, all better now... maybe.${WHITE}";
         exit 0;
