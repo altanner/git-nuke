@@ -9,7 +9,7 @@ REPO=$(pwd);
 
 if ! [[ -d $GITFOLDER ]]; then
     echo -e "${RED}Nuke target NOT acquired.${WHITE}";
-    echo -e "The working folder: \n$REPO\ndoes not appear to be a git repository: standing down.";
+    echo -e "The working folder: \n$REPO\ndoes not appear to be a git repository: ${GREEN}standing down.${WHITE}";
     exit 1;
 else
     GITREPONAME=$(echo $REPO | sed "s/^.*\///g")
