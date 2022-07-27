@@ -31,7 +31,7 @@ else
         echo -e "${GREEN}\nThere we go, all better now... maybe.${WHITE}";
         exit 0;
     else
-        echo "${GREEN}\nNuke aborted, standing down.${WHITE}";
+        echo -e "${GREEN}\nNuke aborted, standing down.${WHITE}";
         exit 0;
     fi
 fi
