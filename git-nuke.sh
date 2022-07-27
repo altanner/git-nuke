@@ -15,23 +15,23 @@ else
     GITREPONAME=$(echo $REPO | sed "s/^.*\///g")
     echo -e "${RED}Nuke target $REPO acquired.${WHITE}";
     echo -e "${RED}Arming warhead...${WHITE}";
-    sleep 2;
+    sleep 1;
     echo -e "${RED}Warhead ready - awaiting confirmation...${WHITE}";
     echo -e "${RED}This action will permanently NUKE $REPO.${WHITE}";
     echo -e "${RED}Confirm launch? [type NUKE to confirm]${WHITE}";
     read ANSWER;
     if [ $ANSWER = "NUKE" ]; then
-	echo -e "Very well, ${RED}NUKE${WHITE} is launched and in flight." 
-        echo -e "${GREEN}Will you want to rebuild from the smouldering ashes? [y/n]";
+	echo -e "Very well, ${RED}NUKE${WHITE} launched and in flight." 
+        echo -e "${GREEN}Will you want to rebuild from the smouldering ashes? [y/n]${WHITE}";
         read REBUILD;
         echo -e "${RED}NUKE approaching target... you have a 3 second abort window.${WHITE}";
-        sleep 3;
+        sleep 2;
         cd ..;
         rm -rf $REPO;
         echo -e "\n${RED}~~~~~~~~~~~~~~${WHITE}";
-        sleep 1;
+        sleep 0.5;
         echo -e "${RED}~ REPO NUKED ~${WHITE}";
-        sleep 1;
+        sleep 0.5;
         echo -e "${RED}~~~~~~~~~~~~~~${WHITE}";
         if [ $REBUILD = "y" ]; then
             echo -e "\n${GREEN}Rebuilding...${WHITE}";
@@ -43,4 +43,5 @@ else
         echo -e "${GREEN}Nuke aborted, standing down.${WHITE}";
     fi
 fi
+exit
 $SHELL
