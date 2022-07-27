@@ -10,7 +10,7 @@ if ! [[ -d $GITFOLDER ]]; then
     echo -e "The working folder: \n$REPO\ndoes not appear to be a git repository... standing down.";
     exit 1;
 else
-    GITREPONAME==$(echo $REPO | sed "s/^.*\///g")
+    GITREPONAME=$(echo $REPO | sed "s/^.*\///g")
     echo -e "${RED}Arming warhead...${WHITE}";
     sleep 2;
     echo -e "${RED}Warhead ready - awaiting confirmation...${WHITE}";
