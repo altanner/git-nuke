@@ -38,9 +38,8 @@ else
             cd $GITREPONAME;
         fi
         echo -e "${GREEN}\nThere we go, all better now... maybe.${WHITE}";
-        exit 0;
     else
         echo -e "${GREEN}Nuke aborted, standing down.${WHITE}";
-        exit 0;
     fi
 fi
+$SHELL
