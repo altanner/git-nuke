@@ -1,8 +1,8 @@
 #!/bin/bash
 
-RED='\033[31m';
-GREEN='\033[32m';
-WHITE='\033[0m';
+RED="\033[31m";
+GREEN="\033[32m";
+WHITE="\033[0m";
 GITFOLDER="./.git/"
 GITUSER=$(git config user.name);
 REPO=$(pwd);
@@ -19,15 +19,24 @@ else
     echo -e "${RED}Warhead ready - awaiting confirmation...${WHITE}";
     echo -e "${RED}This action will permanently NUKE $REPO.${WHITE}";
     echo -e "${RED}Confirm launch? [NUKE/no]${WHITE}";
-    read ANSWER
+    read ANSWER;
     if [ $ANSWER = "NUKE" ]; then
+        echo -e "${GREEN}Would you like to rebuild from the smouldering ashes? [y/n]";
+        read REBUILD;
         echo -e "${RED}Launching... you have a 3 second abort window.${WHITE}";
         sleep 3;
         cd ..;
         rm -rf $REPO;
-        echo -e "${RED}Repo nuked... rebuilding...${WHITE}";
-        git clone https://github.com/$GITUSER/$GITREPONAME.git;
-        cd $GITREPONAME;
+        echo -e "${RED}~~~~~~~~~~~~~~${WHITE}";
+        sleep 1;
+        echo -e "${RED}~ REPO NUKED ~${WHITE}";
+        sleep 1;
+        echo -e "${RED}~~~~~~~~~~~~~~${WHITE}";
+        if [ $REBUILD = "y" ]; then
+            echo -e "${GREEN}Rebuilding...${WHITE}";
+            git clone https://github.com/$GITUSER/$GITREPONAME.git;
+            cd $GITREPONAME;
+        fi
         echo -e "${GREEN}\nThere we go, all better now... maybe.${WHITE}";
         exit 0;
     else
