@@ -26,7 +26,6 @@ else
         cd ..;
         rm -rf $REPO;
         echo -e "${RED}Repo nuked... rebuilding...${WHITE}";
-        #! why doesn't this line work?
         git clone https://github.com/$GITUSER/$GITREPONAME.git;
         cd $GITREPONAME;
         echo -e "${GREEN}\nThere we go, all better now... maybe.${WHITE}";
