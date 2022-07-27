@@ -18,16 +18,17 @@ else
     sleep 2;
     echo -e "${RED}Warhead ready - awaiting confirmation...${WHITE}";
     echo -e "${RED}This action will permanently NUKE $REPO.${WHITE}";
-    echo -e "${RED}Confirm launch? [NUKE/no]${WHITE}";
+    echo -e "${RED}Confirm launch? [type NUKE to confirm]${WHITE}";
     read ANSWER;
     if [ $ANSWER = "NUKE" ]; then
-        echo -e "${GREEN}Would you like to rebuild from the smouldering ashes? [y/n]";
+	echo -e "Very well, ${RED}NUKE${WHITE} is launched and in flight." 
+        echo -e "${GREEN}Will you want to rebuild from the smouldering ashes? [y/n]";
         read REBUILD;
-        echo -e "${RED}Launching... you have a 3 second abort window.${WHITE}";
+        echo -e "${RED}NUKE approaching target... you have a 3 second abort window.${WHITE}";
         sleep 3;
         cd ..;
         rm -rf $REPO;
-        echo -e "${RED}~~~~~~~~~~~~~~${WHITE}";
+        echo -e "\n${RED}~~~~~~~~~~~~~~${WHITE}";
         sleep 1;
         echo -e "${RED}~ REPO NUKED ~${WHITE}";
         sleep 1;
