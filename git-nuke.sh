@@ -38,10 +38,9 @@ else
             git clone https://github.com/$GITUSER/$GITREPONAME.git;
             cd $GITREPONAME;
         fi
-        echo -e "${GREEN}\nThere we go, all better now... maybe.${WHITE}";
+        echo -e "${GREEN}\nThere we go, all better now.${WHITE}";
     else
         echo -e "${GREEN}Nuke aborted, standing down.${WHITE}";
     fi
 fi
-exit
 $SHELL
