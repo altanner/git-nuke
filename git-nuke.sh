@@ -34,7 +34,7 @@ else
         sleep 1;
         echo -e "${RED}~~~~~~~~~~~~~~${WHITE}";
         if [ $REBUILD = "y" ]; then
-            echo -e "${GREEN}Rebuilding...${WHITE}";
+            echo -e "\n${GREEN}Rebuilding...${WHITE}";
             git clone https://github.com/$GITUSER/$GITREPONAME.git;
             cd $GITREPONAME;
         fi
