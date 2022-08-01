@@ -43,4 +43,5 @@ else
         echo -e "${GREEN}Nuke aborted, standing down.${WHITE}";
     fi
 fi
+# yeah I know this leaves you in a dangling shell, plz suggest a fix
 $SHELL
